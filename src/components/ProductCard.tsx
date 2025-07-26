@@ -2,6 +2,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Heart, ShoppingCart, Star } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useCart } from "@/contexts/CartContext";
 
 interface ProductCardProps {
   id: string;
@@ -16,6 +18,7 @@ interface ProductCardProps {
 }
 
 export const ProductCard = ({ 
+  id,
   name, 
   price, 
   originalPrice, 
@@ -25,6 +28,7 @@ export const ProductCard = ({
   category,
   isFavorite = false 
 }: ProductCardProps) => {
+  const { addToCart } = useCart();
   const discount = originalPrice ? Math.round(((originalPrice - price) / originalPrice) * 100) : 0;
 
   return (
@@ -95,12 +99,23 @@ export const ProductCard = ({
           
           {/* Actions */}
           <div className="flex gap-2 pt-2">
-            <Button className="flex-1 bg-gradient-warm hover:shadow-md transition-all">
+            <Button 
+              className="flex-1 bg-gradient-warm hover:shadow-md transition-all"
+              onClick={() => addToCart({
+                id,
+                name,
+                price,
+                image,
+                category
+              })}
+            >
               <ShoppingCart className="h-4 w-4 mr-2" />
               Adicionar
             </Button>
-            <Button variant="outline" size="sm">
-              Ver Mais
+            <Button asChild variant="outline" size="sm">
+              <Link to={`/produto/${id}`}>
+                Ver Mais
+              </Link>
             </Button>
           </div>
         </div>

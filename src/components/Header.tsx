@@ -2,8 +2,10 @@ import { ShoppingBag, Search, Menu, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
+import { useCart } from "@/contexts/CartContext";
 
 export const Header = () => {
+  const { getTotalItems } = useCart();
   return (
     <header className="bg-card border-b border-border sticky top-0 z-50 shadow-soft">
       <div className="container mx-auto px-4 py-4">
@@ -37,7 +39,7 @@ export const Header = () => {
               <ShoppingBag className="h-4 w-4 mr-2" />
               <span className="hidden sm:inline">Carrinho</span>
               <span className="ml-1 bg-primary text-primary-foreground rounded-full text-xs px-2 py-0.5">
-                0
+                {getTotalItems()}
               </span>
             </Button>
             <Button variant="ghost" size="sm" className="md:hidden">
