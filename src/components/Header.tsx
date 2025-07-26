@@ -1,6 +1,7 @@
 import { ShoppingBag, Search, Menu, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
@@ -8,12 +9,12 @@ export const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
             <div className="w-8 h-8 bg-gradient-warm rounded-full flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-sm">TC</span>
             </div>
             <h1 className="text-xl font-bold text-foreground">Tapetes Crochê</h1>
-          </div>
+          </Link>
 
           {/* Search Bar - Hidden on mobile */}
           <div className="hidden md:flex flex-1 max-w-md mx-8">
