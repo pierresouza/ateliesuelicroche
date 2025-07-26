@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroRug from "@/assets/hero-rug.jpg";
 
 export const Hero = () => {
@@ -26,12 +27,16 @@ export const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-gradient-warm shadow-warm hover:shadow-lg transition-all">
-                Ver Coleção
-                <ArrowRight className="ml-2 h-4 w-4" />
+              <Button asChild size="lg" className="bg-gradient-warm shadow-warm hover:shadow-lg transition-all">
+                <Link to="/colecao">
+                  Ver Coleção
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
               </Button>
-              <Button variant="outline" size="lg">
-                Sobre Nosso Trabalho
+              <Button asChild variant="outline" size="lg">
+                <Link to="/sobre">
+                  Sobre Nosso Trabalho
+                </Link>
               </Button>
             </div>
             
