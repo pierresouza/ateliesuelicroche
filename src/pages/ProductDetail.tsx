@@ -9,14 +9,24 @@ import { ArrowLeft, Heart, ShoppingCart, Star, Truck, Shield, RotateCcw } from "
 import { Link, useParams } from "react-router-dom";
 import { useCart } from "@/contexts/CartContext";
 import { products } from "@/data/products";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const { addToCart } = useCart();
-  const [selectedColor, setSelectedColor] = useState<string>("");
-  
   const product = products.find(p => p.id === id);
+  
+  const [selectedColor, setSelectedColor] = useState<string>(product?.colors[0].name || "");
+  const [currentImage, setCurrentImage] = useState<string>(product?.image || "");
+
+  useEffect(() => {
+    if (product) {
+      const selectedColorData = product.colors.find(c => c.name === selectedColor);
+      if (selectedColorData) {
+        setCurrentImage(selectedColorData.image);
+      }
+    }
+  }, [selectedColor, product]);
 
   if (!product) {
     return (
@@ -57,7 +67,7 @@ const ProductDetail = () => {
             <div className="space-y-4">
               <div className="relative overflow-hidden rounded-2xl shadow-warm">
                 <img 
-                  src={product.image} 
+                  src={currentImage} 
                   alt={product.name}
                   className="w-full h-[500px] object-cover"
                 />
