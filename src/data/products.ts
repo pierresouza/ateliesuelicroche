@@ -1,6 +1,12 @@
 import rug1 from "@/assets/rug-1.jpg";
 import rug2 from "@/assets/rug-2.jpg";
 import rug3 from "@/assets/rug-3.jpg";
+import rugBeige from "@/assets/rug-beige.jpg";
+import rugBrown from "@/assets/rug-brown.jpg";
+import rugTerracota from "@/assets/rug-terracota.jpg";
+import rugPink from "@/assets/rug-pink.jpg";
+import rugBlue from "@/assets/rug-blue.jpg";
+import rugGray from "@/assets/rug-gray.jpg";
 
 export interface Product {
   id: string;
@@ -14,7 +20,7 @@ export interface Product {
   description: string;
   dimensions: string;
   material: string;
-  colors: Array<{ name: string; hex: string }>;
+  colors: Array<{ name: string; hex: string; image: string }>;
   careInstructions: string;
 }
 
@@ -24,7 +30,7 @@ export const products: Product[] = [
     name: "Tapete Redondo Mandala",
     price: 89.90,
     originalPrice: 120.00,
-    image: rug1,
+    image: rugBeige,
     rating: 5,
     reviews: 23,
     category: "Redondo",
@@ -32,9 +38,9 @@ export const products: Product[] = [
     dimensions: "120cm de diâmetro",
     material: "100% Algodão",
     colors: [
-      { name: "Bege", hex: "#D4C5B9" },
-      { name: "Marrom", hex: "#8B7355" },
-      { name: "Creme", hex: "#F5F5DC" }
+      { name: "Bege", hex: "#D4C5B9", image: rugBeige },
+      { name: "Marrom", hex: "#8B7355", image: rugBrown },
+      { name: "Creme", hex: "#F5F5DC", image: rug1 }
     ],
     careInstructions: "Lavar à mão com água fria. Secar à sombra."
   },
@@ -43,7 +49,7 @@ export const products: Product[] = [
     name: "Tapete Geométrico Terracota",
     price: 156.50,
     originalPrice: 189.90,
-    image: rug2,
+    image: rugTerracota,
     rating: 4,
     reviews: 18,
     category: "Retangular",
@@ -51,9 +57,9 @@ export const products: Product[] = [
     dimensions: "150cm x 100cm",
     material: "Algodão e Juta",
     colors: [
-      { name: "Terracota", hex: "#E2725B" },
-      { name: "Creme", hex: "#F5F5DC" },
-      { name: "Marrom", hex: "#8B7355" }
+      { name: "Terracota", hex: "#E2725B", image: rugTerracota },
+      { name: "Creme", hex: "#F5F5DC", image: rug1 },
+      { name: "Marrom", hex: "#8B7355", image: rugBrown }
     ],
     careInstructions: "Lavar à máquina em ciclo delicado. Não usar alvejante."
   },
@@ -61,7 +67,7 @@ export const products: Product[] = [
     id: "3",
     name: "Tapete Oval Flores",
     price: 134.90,
-    image: rug3,
+    image: rugPink,
     rating: 5,
     reviews: 31,
     category: "Oval",
@@ -69,9 +75,9 @@ export const products: Product[] = [
     dimensions: "130cm x 80cm",
     material: "100% Algodão",
     colors: [
-      { name: "Rosa", hex: "#FFB6C1" },
-      { name: "Verde", hex: "#90EE90" },
-      { name: "Creme", hex: "#F5F5DC" }
+      { name: "Rosa", hex: "#FFB6C1", image: rugPink },
+      { name: "Verde", hex: "#90EE90", image: rug3 },
+      { name: "Creme", hex: "#F5F5DC", image: rug1 }
     ],
     careInstructions: "Lavar à mão com sabão neutro. Não torcer."
   },
@@ -79,7 +85,7 @@ export const products: Product[] = [
     id: "4",
     name: "Tapete Redondo Colorido",
     price: 95.00,
-    image: rug1,
+    image: rugBlue,
     rating: 5,
     reviews: 15,
     category: "Redondo",
@@ -87,9 +93,9 @@ export const products: Product[] = [
     dimensions: "100cm de diâmetro",
     material: "100% Algodão",
     colors: [
-      { name: "Azul", hex: "#87CEEB" },
-      { name: "Rosa", hex: "#FFB6C1" },
-      { name: "Amarelo", hex: "#FFD700" }
+      { name: "Azul", hex: "#87CEEB", image: rugBlue },
+      { name: "Rosa", hex: "#FFB6C1", image: rugPink },
+      { name: "Amarelo", hex: "#FFD700", image: rug1 }
     ],
     careInstructions: "Lavar à mão com sabão neutro."
   },
@@ -98,7 +104,7 @@ export const products: Product[] = [
     name: "Tapete Retangular Listrado",
     price: 145.00,
     originalPrice: 180.00,
-    image: rug2,
+    image: rugGray,
     rating: 4,
     reviews: 20,
     category: "Retangular",
@@ -106,9 +112,9 @@ export const products: Product[] = [
     dimensions: "180cm x 120cm",
     material: "Algodão e Juta",
     colors: [
-      { name: "Cinza", hex: "#808080" },
-      { name: "Branco", hex: "#FFFFFF" },
-      { name: "Preto", hex: "#2C2C2C" }
+      { name: "Cinza", hex: "#808080", image: rugGray },
+      { name: "Branco", hex: "#FFFFFF", image: rug1 },
+      { name: "Preto", hex: "#2C2C2C", image: rug2 }
     ],
     careInstructions: "Lavar à máquina em ciclo delicado."
   },
@@ -124,9 +130,9 @@ export const products: Product[] = [
     dimensions: "140cm x 90cm",
     material: "100% Algodão",
     colors: [
-      { name: "Bege", hex: "#D4C5B9" },
-      { name: "Creme", hex: "#F5F5DC" },
-      { name: "Marfim", hex: "#FFFFF0" }
+      { name: "Bege", hex: "#D4C5B9", image: rugBeige },
+      { name: "Creme", hex: "#F5F5DC", image: rug1 },
+      { name: "Marfim", hex: "#FFFFF0", image: rug3 }
     ],
     careInstructions: "Lavar à mão com água fria."
   },
@@ -142,9 +148,9 @@ export const products: Product[] = [
     dimensions: "130cm de diâmetro",
     material: "100% Algodão",
     colors: [
-      { name: "Cinza Claro", hex: "#D3D3D3" },
-      { name: "Branco", hex: "#FFFFFF" },
-      { name: "Azul Claro", hex: "#ADD8E6" }
+      { name: "Cinza Claro", hex: "#D3D3D3", image: rugGray },
+      { name: "Branco", hex: "#FFFFFF", image: rug1 },
+      { name: "Azul Claro", hex: "#ADD8E6", image: rugBlue }
     ],
     careInstructions: "Lavar à máquina em água fria."
   },
@@ -161,9 +167,9 @@ export const products: Product[] = [
     dimensions: "160cm x 110cm",
     material: "Algodão e Juta",
     colors: [
-      { name: "Mostarda", hex: "#FFDB58" },
-      { name: "Terracota", hex: "#E2725B" },
-      { name: "Verde Oliva", hex: "#808000" }
+      { name: "Mostarda", hex: "#FFDB58", image: rug2 },
+      { name: "Terracota", hex: "#E2725B", image: rugTerracota },
+      { name: "Verde Oliva", hex: "#808000", image: rug3 }
     ],
     careInstructions: "Lavar à mão com cuidado. Não torcer."
   },
@@ -179,9 +185,9 @@ export const products: Product[] = [
     dimensions: "135cm x 85cm",
     material: "100% Algodão",
     colors: [
-      { name: "Rosa Claro", hex: "#FFE4E1" },
-      { name: "Lavanda", hex: "#E6E6FA" },
-      { name: "Creme", hex: "#F5F5DC" }
+      { name: "Rosa Claro", hex: "#FFE4E1", image: rugPink },
+      { name: "Lavanda", hex: "#E6E6FA", image: rug3 },
+      { name: "Creme", hex: "#F5F5DC", image: rug1 }
     ],
     careInstructions: "Lavar à mão com sabão neutro."
   },
@@ -197,9 +203,9 @@ export const products: Product[] = [
     dimensions: "110cm de diâmetro",
     material: "100% Algodão",
     colors: [
-      { name: "Verde", hex: "#90EE90" },
-      { name: "Coral", hex: "#FF7F50" },
-      { name: "Turquesa", hex: "#40E0D0" }
+      { name: "Verde", hex: "#90EE90", image: rug3 },
+      { name: "Coral", hex: "#FF7F50", image: rugTerracota },
+      { name: "Turquesa", hex: "#40E0D0", image: rugBlue }
     ],
     careInstructions: "Lavar à mão com água fria."
   },
@@ -215,9 +221,9 @@ export const products: Product[] = [
     dimensions: "200cm x 140cm",
     material: "Algodão e Juta",
     colors: [
-      { name: "Cinza Escuro", hex: "#696969" },
-      { name: "Preto", hex: "#2C2C2C" },
-      { name: "Cru", hex: "#ECE9E6" }
+      { name: "Cinza Escuro", hex: "#696969", image: rugGray },
+      { name: "Preto", hex: "#2C2C2C", image: rug2 },
+      { name: "Cru", hex: "#ECE9E6", image: rug1 }
     ],
     careInstructions: "Lavar à máquina em ciclo normal."
   },
@@ -233,9 +239,9 @@ export const products: Product[] = [
     dimensions: "145cm x 95cm",
     material: "100% Algodão",
     colors: [
-      { name: "Lilás", hex: "#DDA0DD" },
-      { name: "Verde Menta", hex: "#98FF98" },
-      { name: "Amarelo Claro", hex: "#FFFFE0" }
+      { name: "Lilás", hex: "#DDA0DD", image: rug3 },
+      { name: "Verde Menta", hex: "#98FF98", image: rug3 },
+      { name: "Amarelo Claro", hex: "#FFFFE0", image: rug1 }
     ],
     careInstructions: "Lavar à mão com cuidado."
   },
@@ -252,9 +258,9 @@ export const products: Product[] = [
     dimensions: "125cm de diâmetro",
     material: "100% Algodão",
     colors: [
-      { name: "Vermelho", hex: "#DC143C" },
-      { name: "Laranja", hex: "#FF8C00" },
-      { name: "Marrom", hex: "#8B7355" }
+      { name: "Vermelho", hex: "#DC143C", image: rugTerracota },
+      { name: "Laranja", hex: "#FF8C00", image: rugTerracota },
+      { name: "Marrom", hex: "#8B7355", image: rugBrown }
     ],
     careInstructions: "Lavar à mão com água fria."
   },
@@ -270,9 +276,9 @@ export const products: Product[] = [
     dimensions: "170cm x 120cm",
     material: "100% Algodão",
     colors: [
-      { name: "Branco Gelo", hex: "#F8F8FF" },
-      { name: "Cinza Claro", hex: "#D3D3D3" },
-      { name: "Azul Pastel", hex: "#B0E0E6" }
+      { name: "Branco Gelo", hex: "#F8F8FF", image: rug1 },
+      { name: "Cinza Claro", hex: "#D3D3D3", image: rugGray },
+      { name: "Azul Pastel", hex: "#B0E0E6", image: rugBlue }
     ],
     careInstructions: "Lavar à máquina em água fria."
   },
@@ -288,9 +294,9 @@ export const products: Product[] = [
     dimensions: "150cm x 100cm",
     material: "Algodão e Juta",
     colors: [
-      { name: "Mostarda Queimado", hex: "#CC8800" },
-      { name: "Verde Musgo", hex: "#8A9A5B" },
-      { name: "Terracota", hex: "#E2725B" }
+      { name: "Mostarda Queimado", hex: "#CC8800", image: rug2 },
+      { name: "Verde Musgo", hex: "#8A9A5B", image: rug3 },
+      { name: "Terracota", hex: "#E2725B", image: rugTerracota }
     ],
     careInstructions: "Lavar à mão com sabão neutro."
   },
@@ -306,9 +312,9 @@ export const products: Product[] = [
     dimensions: "100cm de diâmetro",
     material: "100% Algodão",
     colors: [
-      { name: "Rosa Chiclete", hex: "#FF69B4" },
-      { name: "Azul Céu", hex: "#87CEEB" },
-      { name: "Verde Limão", hex: "#32CD32" }
+      { name: "Rosa Chiclete", hex: "#FF69B4", image: rugPink },
+      { name: "Azul Céu", hex: "#87CEEB", image: rugBlue },
+      { name: "Verde Limão", hex: "#32CD32", image: rug3 }
     ],
     careInstructions: "Lavar à máquina em ciclo delicado."
   },
@@ -325,9 +331,9 @@ export const products: Product[] = [
     dimensions: "190cm x 130cm",
     material: "Juta e Algodão",
     colors: [
-      { name: "Natural", hex: "#D2B48C" },
-      { name: "Bege", hex: "#D4C5B9" },
-      { name: "Marrom Claro", hex: "#BC9A6C" }
+      { name: "Natural", hex: "#D2B48C", image: rugBeige },
+      { name: "Bege", hex: "#D4C5B9", image: rugBeige },
+      { name: "Marrom Claro", hex: "#BC9A6C", image: rugBrown }
     ],
     careInstructions: "Aspirar regularmente. Não lavar."
   },
@@ -343,9 +349,9 @@ export const products: Product[] = [
     dimensions: "155cm x 105cm",
     material: "100% Algodão",
     colors: [
-      { name: "Preto", hex: "#2C2C2C" },
-      { name: "Branco", hex: "#FFFFFF" },
-      { name: "Cinza Médio", hex: "#A9A9A9" }
+      { name: "Preto", hex: "#2C2C2C", image: rug2 },
+      { name: "Branco", hex: "#FFFFFF", image: rug1 },
+      { name: "Cinza Médio", hex: "#A9A9A9", image: rugGray }
     ],
     careInstructions: "Lavar à máquina em ciclo normal."
   },
@@ -361,9 +367,9 @@ export const products: Product[] = [
     dimensions: "115cm de diâmetro",
     material: "100% Algodão",
     colors: [
-      { name: "Branco Puro", hex: "#FFFFFF" },
-      { name: "Cinza Claro", hex: "#D3D3D3" },
-      { name: "Bege", hex: "#D4C5B9" }
+      { name: "Branco Puro", hex: "#FFFFFF", image: rug1 },
+      { name: "Cinza Claro", hex: "#D3D3D3", image: rugGray },
+      { name: "Bege", hex: "#D4C5B9", image: rugBeige }
     ],
     careInstructions: "Lavar à máquina em água fria."
   },
@@ -379,9 +385,9 @@ export const products: Product[] = [
     dimensions: "180cm x 130cm",
     material: "100% Algodão",
     colors: [
-      { name: "Roxo", hex: "#9370DB" },
-      { name: "Dourado", hex: "#DAA520" },
-      { name: "Azul Marinho", hex: "#000080" }
+      { name: "Roxo", hex: "#9370DB", image: rug2 },
+      { name: "Dourado", hex: "#DAA520", image: rug1 },
+      { name: "Azul Marinho", hex: "#000080", image: rugBlue }
     ],
     careInstructions: "Lavar à mão com cuidado especial."
   },
@@ -397,9 +403,9 @@ export const products: Product[] = [
     dimensions: "140cm x 90cm",
     material: "100% Algodão",
     colors: [
-      { name: "Cru", hex: "#ECE9E6" },
-      { name: "Areia", hex: "#C2B280" },
-      { name: "Bege", hex: "#D4C5B9" }
+      { name: "Cru", hex: "#ECE9E6", image: rug1 },
+      { name: "Areia", hex: "#C2B280", image: rugBeige },
+      { name: "Bege", hex: "#D4C5B9", image: rugBeige }
     ],
     careInstructions: "Lavar à mão com água fria."
   },
@@ -416,9 +422,9 @@ export const products: Product[] = [
     dimensions: "140cm de diâmetro",
     material: "100% Algodão Premium",
     colors: [
-      { name: "Champagne", hex: "#F7E7CE" },
-      { name: "Prata", hex: "#C0C0C0" },
-      { name: "Dourado", hex: "#DAA520" }
+      { name: "Champagne", hex: "#F7E7CE", image: rug1 },
+      { name: "Prata", hex: "#C0C0C0", image: rugGray },
+      { name: "Dourado", hex: "#DAA520", image: rugBeige }
     ],
     careInstructions: "Limpeza profissional recomendada."
   },
@@ -434,9 +440,9 @@ export const products: Product[] = [
     dimensions: "175cm x 125cm",
     material: "Algodão e Juta",
     colors: [
-      { name: "Grafite", hex: "#434343" },
-      { name: "Cinza Médio", hex: "#A9A9A9" },
-      { name: "Branco Off", hex: "#FAF0E6" }
+      { name: "Grafite", hex: "#434343", image: rugGray },
+      { name: "Cinza Médio", hex: "#A9A9A9", image: rugGray },
+      { name: "Branco Off", hex: "#FAF0E6", image: rug1 }
     ],
     careInstructions: "Lavar à máquina em ciclo delicado."
   },
@@ -452,9 +458,9 @@ export const products: Product[] = [
     dimensions: "148cm x 98cm",
     material: "100% Algodão",
     colors: [
-      { name: "Rosa Bebê", hex: "#FFE4E1" },
-      { name: "Pêssego", hex: "#FFDAB9" },
-      { name: "Creme", hex: "#F5F5DC" }
+      { name: "Rosa Bebê", hex: "#FFE4E1", image: rugPink },
+      { name: "Pêssego", hex: "#FFDAB9", image: rugTerracota },
+      { name: "Creme", hex: "#F5F5DC", image: rug1 }
     ],
     careInstructions: "Lavar à mão com sabão neutro."
   },
@@ -470,9 +476,9 @@ export const products: Product[] = [
     dimensions: "135cm de diâmetro",
     material: "100% Algodão",
     colors: [
-      { name: "Cinza Pedra", hex: "#B0B0B0" },
-      { name: "Bege Neutro", hex: "#D4C5B9" },
-      { name: "Branco Natural", hex: "#FAFAFA" }
+      { name: "Cinza Pedra", hex: "#B0B0B0", image: rugGray },
+      { name: "Bege Neutro", hex: "#D4C5B9", image: rugBeige },
+      { name: "Branco Natural", hex: "#FAFAFA", image: rug1 }
     ],
     careInstructions: "Lavar à máquina em água fria."
   }
