@@ -3,65 +3,20 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/components/ui/label";
 import { ArrowLeft, Heart, ShoppingCart, Star, Truck, Shield, RotateCcw } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 import { useCart } from "@/contexts/CartContext";
-import rug1 from "@/assets/rug-1.jpg";
-import rug2 from "@/assets/rug-2.jpg";
-import rug3 from "@/assets/rug-3.jpg";
-
-const allProducts = [
-  {
-    id: "1",
-    name: "Tapete Redondo Mandala",
-    price: 89.90,
-    originalPrice: 120.00,
-    image: rug1,
-    rating: 5,
-    reviews: 23,
-    category: "Redondo",
-    description: "Lindo tapete redondo com padrão mandala, feito com fios de algodão de alta qualidade. Perfeito para salas e quartos, trazendo um toque de elegância e conforto para seu ambiente.",
-    dimensions: "120cm de diâmetro",
-    material: "100% Algodão",
-    colors: ["Bege", "Marrom", "Creme"],
-    careInstructions: "Lavar à mão com água fria. Secar à sombra."
-  },
-  {
-    id: "2", 
-    name: "Tapete Geométrico Terracota",
-    price: 156.50,
-    originalPrice: 189.90,
-    image: rug2,
-    rating: 4,
-    reviews: 18,
-    category: "Retangular",
-    description: "Tapete retangular com padrão geométrico em tons terrosos. Ideal para espaços modernos e contemporâneos, combinando perfeitamente com decorações minimalistas.",
-    dimensions: "150cm x 100cm",
-    material: "Algodão e Juta",
-    colors: ["Terracota", "Creme", "Marrom"],
-    careInstructions: "Lavar à máquina em ciclo delicado. Não usar alvejante."
-  },
-  {
-    id: "3",
-    name: "Tapete Oval Flores",
-    price: 134.90,
-    image: rug3,
-    rating: 5,
-    reviews: 31,
-    category: "Oval",
-    description: "Encantador tapete oval com delicados motivos florais. Feito à mão com técnicas tradicionais de crochê, perfeito para criar um ambiente acolhedor e romântico.",
-    dimensions: "130cm x 80cm",
-    material: "100% Algodão",
-    colors: ["Rosa", "Verde", "Creme"],
-    careInstructions: "Lavar à mão com sabão neutro. Não torcer."
-  }
-];
+import { products } from "@/data/products";
+import { useState } from "react";
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const { addToCart } = useCart();
+  const [selectedColor, setSelectedColor] = useState<string>("");
   
-  const product = allProducts.find(p => p.id === id);
+  const product = products.find(p => p.id === id);
 
   if (!product) {
     return (
@@ -170,14 +125,33 @@ const ProductDetail = () => {
 
               {/* Colors */}
               <div>
-                <h4 className="font-medium text-foreground mb-2">Cores</h4>
-                <div className="flex gap-2">
+                <h4 className="font-medium text-foreground mb-3">Cores Disponíveis</h4>
+                <RadioGroup value={selectedColor} onValueChange={setSelectedColor} className="flex gap-3">
                   {product.colors.map((color) => (
-                    <Badge key={color} variant="secondary">
-                      {color}
-                    </Badge>
+                    <div key={color.name} className="flex flex-col items-center gap-1">
+                      <RadioGroupItem
+                        value={color.name}
+                        id={color.name}
+                        className="sr-only"
+                      />
+                      <Label
+                        htmlFor={color.name}
+                        className="cursor-pointer"
+                      >
+                        <div
+                          className={`w-10 h-10 rounded-full border-2 transition-all ${
+                            selectedColor === color.name
+                              ? 'border-primary scale-110 shadow-lg'
+                              : 'border-border hover:border-primary/50'
+                          }`}
+                          style={{ backgroundColor: color.hex }}
+                          title={color.name}
+                        />
+                      </Label>
+                      <span className="text-xs text-muted-foreground">{color.name}</span>
+                    </div>
                   ))}
-                </div>
+                </RadioGroup>
               </div>
 
               {/* Actions */}

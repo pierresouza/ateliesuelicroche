@@ -35,12 +35,14 @@ export const Header = () => {
               <Heart className="h-4 w-4 mr-2" />
               Favoritos
             </Button>
-            <Button variant="ghost" size="sm">
-              <ShoppingBag className="h-4 w-4 mr-2" />
-              <span className="hidden sm:inline">Carrinho</span>
-              <span className="ml-1 bg-primary text-primary-foreground rounded-full text-xs px-2 py-0.5">
-                {getTotalItems()}
-              </span>
+            <Button variant="ghost" size="sm" asChild>
+              <Link to="/carrinho">
+                <ShoppingBag className="h-4 w-4 mr-2" />
+                <span className="hidden sm:inline">Carrinho</span>
+                <span className="ml-1 bg-primary text-primary-foreground rounded-full text-xs px-2 py-0.5">
+                  {getTotalItems()}
+                </span>
+              </Link>
             </Button>
             <Button variant="ghost" size="sm" className="md:hidden">
               <Menu className="h-4 w-4" />
