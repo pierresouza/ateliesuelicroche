@@ -13,12 +13,14 @@ const Cart = () => {
     const phoneNumber = "5511986154656";
     const productList = items
       .map((item, index) => `${index + 1}. ${item.name} - ${item.quantity}x - R$ ${(item.price * item.quantity).toFixed(2)}`)
-      .join("%0A");
+      .join("\n");
     
     const total = getTotalPrice().toFixed(2);
-    const message = `Olá! Gostaria de fazer um pedido:%0A%0A${productList}%0A%0ATotal: R$ ${total}%0A%0AAguardo retorno!`;
+    const message = `Olá! Gostaria de fazer um pedido:\n\n${productList}\n\nTotal: R$ ${total}\n\nAguardo retorno!`;
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
     
-    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+    window.location.href = whatsappUrl;
   };
 
   if (items.length === 0) {
