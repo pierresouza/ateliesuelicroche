@@ -1,73 +1,43 @@
-# Welcome to your Lovable project
+# Ateliê Sueli Crochê — E-commerce B2C
 
-## Project info
+Loja virtual oficial do **Ateliê Sueli Crochê** ([`@atelie_sueli_croche`](https://www.instagram.com/atelie_sueli_croche/)), construída em arquitetura moderna **Next.js 15 (App Router)**, gerenciada via **Yarn**, integrada ao **Supabase (`@supabase/ssr`)** com rotina dupla de *Keep-Alive*, **Google Analytics 4 Enhanced Ecommerce** e **SEO técnico completo para Google Search Console**.
 
-**URL**: https://lovable.dev/projects/61f20004-9a3b-4a18-92bc-71daa8590884
+## Stack Tecnológica
 
-## How can I edit this code?
+- **Framework**: Next.js 15 (App Router, SSR/ISR, Server Actions, Metadata API)
+- **Gerenciador de Pacotes**: Yarn (`yarn.lock`)
+- **Linguagem & UI**: TypeScript, Tailwind CSS, shadcn/ui, Framer Motion, Lucide Icons
+- **Backend & Auth**: Supabase (`@supabase/supabase-js` + `@supabase/ssr`)
+- **Analytics & SEO**: `@next/third-parties/google` (GA4 + GTM + Consent Mode v2), Schema.org `JSON-LD`, Sitemap XML e Robots dinâmicos
 
-There are several ways of editing your application.
+## Como Rodar Localmente
 
-**Use Lovable**
+1. Instale as dependências com **Yarn**:
+   ```bash
+   yarn install
+   ```
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/61f20004-9a3b-4a18-92bc-71daa8590884) and start prompting.
+2. Configure o arquivo `.env.local` (veja `.env.example` como referência):
+   ```env
+   NEXT_PUBLIC_SUPABASE_URL=https://vaoxdmdoqtkbbkccmnxh.supabase.co
+   NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_...
+   ```
 
-Changes made via Lovable will be committed automatically to this repo.
+3. No painel do Supabase (**SQL Editor**), execute a migration inicial em:
+   `supabase/migrations/20261124000001_init_ecommerce.sql`
 
-**Use your preferred IDE**
+4. Inicie o servidor de desenvolvimento:
+   ```bash
+   yarn dev
+   ```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+5. Valide tipagem e build de produção:
+   ```bash
+   yarn typecheck
+   yarn build
+   ```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Rotina Anti-Pausa do Supabase (Keep-Alive)
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/61f20004-9a3b-4a18-92bc-71daa8590884) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+- **Endpoint Next.js**: `GET /api/cron/keepalive` (acionado via Vercel Cron configurado em `vercel.json`).
+- **GitHub Actions**: `.github/workflows/supabase-keepalive.yml` executa ping automático a cada 3 dias na RPC `public.ping_keepalive()`.

@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Paleta Ateliê Sueli Crochê — Aconchegante, Autoral & B2C Premium */
+    --background: 34 33% 98%;
+    --foreground: 22 30% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 22 30% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 22 30% 14%;
+
+    /* Terracota Artesanal Sueli */
+    --primary: 16 68% 48%;
+    --primary-foreground: 36 40% 98%;
+
+    /* Algodão Cru / Areia Suave */
+    --secondary: 33 35% 93%;
+    --secondary-foreground: 22 30% 16%;
+
+    --muted: 33 24% 92%;
+    --muted-foreground: 24 14% 42%;
+
+    /* Oliva / Argila Suave */
+    --accent: 28 42% 88%;
+    --accent-foreground: 22 30% 14%;
+
+    /* Destaque PIX / Economia B2C */
+    --pix: 152 62% 32%;
+    --pix-foreground: 0 0% 100%;
+
+    --destructive: 0 74% 54%;
+    --destructive-foreground: 36 40% 98%;
+
+    --border: 32 22% 86%;
+    --input: 32 22% 86%;
+    --ring: 16 68% 48%;
+
+    --gradient-warm: linear-gradient(135deg, hsl(16 68% 48%), hsl(24 72% 54%));
+    --gradient-subtle: linear-gradient(180deg, hsl(34 38% 96%), hsl(33 30% 92%));
+    --shadow-warm: 0 12px 32px -10px hsl(16 68% 48% / 0.24);
+    --shadow-soft: 0 4px 20px -4px hsl(22 30% 14% / 0.08);
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-primary/20 selection:text-foreground;
+  }
+
+  h1, h2, h3, .font-display {
+    @apply font-serif tracking-tight;
+  }
+}
